@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Sedona</title>
+  <meta name="description" content="Sedona">
+  <meta name="keywords" content="Sedona, resort">
+  @@include('_html_inc/main_head_inc.html')
+</head>
+<body>
+@@include('_html_inc/main_header.html')
+
+  <section class="reasons-advantages">
+    <header class="reasons-advantages__header">
+      <h1 class="reasons-advantages__heading">Седона — небольшой городок в аризоне, заслуживающий большего!</h1>
+      <h2 class="reasons-advantages__descr">Рассмотрим 5 причин, по которым Седона круче чем гранд каньон!</h2>
+    </header>
+
+    <div class="reason reason--full">
+      <div class="reason__info to-left">
+        <h2 class="reason__heading">Настоящий городок</h2>
+        <p class="reason__number">— №1 —</p>
+        <p class="reason__descr">Седона не атракцион для туристов, там течет своя жизнь</p>
+      </div>
+      <div class="reason__img to-right">
+        <img src="img/img-reason1.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="advantages">
+      <div class="advantages__item">
+        <h3 class="advantages__heading">Жилье</h3>
+        <p class="advantages__info">Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
+      </div>
+      <div class="advantages__item">
+        <h3 class="advantages__heading">Еда</h3>
+        <p class="advantages__info">Всегда заказывайте фирменный бургер, вы не разочаруетесь!</p>
+      </div>
+      <div class="advantages__item">
+        <h3 class="advantages__heading">Сувениры</h3>
+        <p class="advantages__info">Не только китайского, но и местного производства!</p>
+      </div>
+    </div>
+
+    <div class="reason reason--full">
+      <div class="reason__info to-right">
+        <h2 class="reason__heading">Tам есть мост дьявола</h2>
+        <p class="reason__nubmer">— №2 —</p>
+        <p class="reason__descr">Да, по нему можно пройти! Если конечно вы осмелитесь</p>
+      </div>
+      <div class="reason__img to-left">
+        <img src="img/img-feature2.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="reason reason--short">
+      <h3 class="reason__heading">Небольшая площадь</h3>
+      <p class="reason__number">— №3 —</p>
+      <p class="reason__descr">Ехать в седону из лас-вегаса совсем не скучно!</p>
+    </div>
+    <div class="reason reason--short">
+      <h3 class="reason__heading">Красивая дорога</h3>
+      <p class="reason__number">— №4 —</p>
+      <p class="reason__descr">Все достопримечательности находятся очень близко</p>
+    </div>
+    <div class="reason reason--short">
+      <h3 class="reason__heading">Мало туристов</h3>
+      <p class="reason__number">— №5 —</p>
+      <p class="reason__descr">Большинство едет в гранд каньон и толпится там</p>
+    </div>
+  </section>
+
+
+  <section class="search-hotel">
+    <header class="search-hotel__header">
+      <h2 class="search-hotel__heading">Заинтересовались?</h2>
+      <h3 class="search-hotel__descr">Укажите предполагаемые даты поездки и мы покажем вам лучшие предложения гостиниц в Седоне</h3>
+    </header>
+
+    <form action="#echo" method="post" class="search_form">
+      <h2 class="search_form__heading">Поиск гостиницы в Седоне</h2>
+      <div class="search_form__row"><input type="date" name="date-in" id="date-in" class="search_form__date" placeholder="29 июля 2015"><label for="date-in" class="search_form__label">Дата заезда</label></div>
+      <div class="search_form__row"><input type="date" name="date-out" id="date-out" class="search_form__date" placeholder="7 августа 2015"><label for="date-out" class="search_form__label">Дата выезда</label></div>
+      <div class="search_form__row">
+        <div class="search_form__half-row to-left">
+          <div class="search_form__btns to-right">
+            <input type="button" value="-" class="search_form__btn-minus" id="btn-minus-adults">
+            <input type="text" name="count-adults" id="count-adults" class="search_form__count" placeholder="2">
+            <input type="button" value="+" class="search_form__btn-plus" id="btn-plus-adults">
+          </div>
+          <label for="count-adults" class="search_form__label to-left">Взрослые</label>
+        </div>
+        <div class="search_form__half-row to-right">
+          <div class="search_form__btns to-right">
+            <input type="button" value="-" class="search_form__btn-minus" id="btn-minus-children">
+            <input type="text" name="count-children" id="count-children" class="search_form__count" placeholder="0">
+            <input type="button" value="+" class="search_form__btn-plus" id="btn-plus-children">
+          </div>
+          <label for="count-children" class="search_form__label to-left">Дети</label>
+        </div>
+      </div>
+    </form>
+
+    <div class="search-hotel__map" id="map-canvas"></div>
+  </section>
+
+@@include('_html_inc/main_footer.html')
+@@include('_html_inc/main_bottom_inc.html')
+</body>
+</html>
