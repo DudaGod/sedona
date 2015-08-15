@@ -15,10 +15,10 @@ module.exports = function(grunt) {
           sourceMapFilename: "build/css/style.css.map",
           sourceMapURL: 'style.css.map',
           sourceMapRootpath: '../../',
-        }
+        },
         files: {
           'build/css/style.css': ['src/less/style.less']
-        },
+        }
       }
     },
 
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
     },
 
 
-    sprite:{
+    sprite: {
       sprite_large: {
         src: 'src/img/sprite-2x/*.png',
         dest: 'build/img/sprite-2x.png',
@@ -105,6 +105,17 @@ module.exports = function(grunt) {
           expand: true,
           src: ['build/img/*.{png,jpg,gif,svg}']
         }]
+      }
+    },
+
+    less_colors: {
+      start: {
+        options: {
+          funcName: 'cless'
+        },
+        files: {
+          'src/less/variables.less': ['src/less/variables.less']
+        }
       }
     },
 
@@ -251,8 +262,9 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', [
-    'sprite',                 // собираем спрайты в build/img/sprite-1x.png и build/img/sprite-2x.png и записываем для них less-файлы
+    // 'sprite',                 // собираем спрайты в build/img/sprite-1x.png и build/img/sprite-2x.png и записываем для них less-файлы
     'copy:css_add',           // копируем дополнительные CSS-файлы из src/less/css/ в build/css/
+    'less_colors:start',      // заменяю в less файле цвета на less функции цветов
     'less',                   // компилируем стили в          build/css/style.css
     'autoprefixer',           // обрабатываем автопрефиксером build/css/style.css
     'copy:css_min',           // создаем                      build/css/style.min.css
@@ -272,8 +284,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:build',            // удаляем build/
-    'sprite',                 // собираем спрайты в build/img/sprite-1x.png и build/img/sprite-2x.png и записываем для них less-файлы
-     'copy:css_add',          // копируем дополнительные CSS-файлы из src/less/css/ в build/css/
+    // 'sprite',                 // собираем спрайты в build/img/sprite-1x.png и build/img/sprite-2x.png и записываем для них less-файлы
+    'copy:css_add',          // копируем дополнительные CSS-файлы из src/less/css/ в build/css/
+    'less_colors:start',      // заменяю в less файле цвета на less функции цветов
     'less',                   // компилируем стили в          build/css/style.css
     'autoprefixer',           // обрабатываем автопрефиксером build/css/style.css
     'copy:css_min',           // создаем                      build/css/style.min.css
@@ -297,6 +310,7 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('style', [
+    'less_colors:start',
     'less',
     'autoprefixer',
     'cmq',
@@ -305,7 +319,7 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('img', [
-    'sprite',
+    // 'sprite',
     'copy:img',
     'imagemin',
     'less',

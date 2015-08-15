@@ -4,7 +4,7 @@
 
 @gray:                  #000;
 @gray--20:              lighten(@gray, 20%); // text
-@gray--93:              lighten(@gray, 93); // background
+@gray--93:              lighten(@gray, 93%); // background
 
 @white:                 #fff;
 @navy:                  #81b3d2;
@@ -17,7 +17,7 @@
 
 @body-bg:               #fff;
 @text-color:            @gray;
-@text-color--gray:      @gray-20;
+@text-color--gray:      @gray--20;
 @text-color--white:     @white;
 
 @link-color:            @gray;
@@ -31,7 +31,7 @@
 ========================================================*/
 
 @font-family:           "PTSans-Regular", Arial, sans-serif;
-@font-family--bold:      "PTSans-Bold", Arial, sans-serif;
+@font-family--bold:     "PTSans-Bold", Arial, sans-serif;
 
 @font-size:             1.4rem;
 @font-size--h1:         3rem;
@@ -54,7 +54,10 @@
     Buttons
 ========================================================*/
 
-
+@btn-nav-hvr: darken(desaturate(@navy, 5%), 8%);
+@btn-nav-act: spin(desaturate(darken(@navy, 12%), 3%), -1);
+@btn-nav-test: spin(desaturate(lighten(#ff005d, 11%), 81%), -231); // desire: #90ae89 - result: #91ae89
+@btn-nav-test2: spin(saturate(lighten(@brown, 10%), 20%), 89); // desire: #5fac53 - result: #5fad53
 
 /*=======================================================
     Forms
