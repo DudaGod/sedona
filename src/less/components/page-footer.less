@@ -1,0 +1,55 @@
+@import "../variables.less";
+.page-footer {
+  background-color: rgba(255, 255,255, .9);
+  position: absolute;
+  z-index: 100;
+  transform: translateY(-100%);
+  width: 100%;
+  height: 235px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 8px;
+
+  &__hashtag {
+    font-size: @font-size--h2;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  &__copyright {
+    margin-top: 21px;
+    margin-bottom: 23px;
+
+    &-text {
+      display: inline;
+      line-height: @line-height--26;
+    }
+  }
+}
+
+.social-links {
+  list-style: none;
+  margin-top: 19px;
+  margin-bottom: 21px;
+  padding: 0;
+  font-size: 0;
+
+  & li {
+    display: inline-block;
+    vertical-align: top;
+    font-size: @font-size;
+    margin: 0 3px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: block;
+    width: 46px;
+    height: 48px;
+    background-color: @navy;
+  }
+}
+

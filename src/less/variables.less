@@ -2,13 +2,18 @@
     Colors
 ========================================================*/
 
-@gray:                  #000;
+@gray:                  #000000;
 @gray--20:              lighten(@gray, 20%); // text
-@gray--93:              lighten(@gray, 93%); // background
+@gray--84:              lighten(@gray, 84%); // #d6d6d6 (border-btm, feature-short)
+@gray--93:              lighten(@gray, 93%); // #eeeeee (background)
 
-@white:                 #fff;
+@white:                 #ffffff;
+@white--5:              darken(@white, 5%); // #f2f2f2 (for text form)
+
+
 @navy:                  #81b3d2;
 @brown:                 #766357;
+
 
 
 /*=======================================================
@@ -54,8 +59,10 @@
     Buttons
 ========================================================*/
 
-@btn-nav-hvr: darken(desaturate(@navy, 5%), 8%);
-@btn-nav-act: spin(desaturate(darken(@navy, 12%), 3%), -1);
+@btn-navy-hvr: desaturate(darken(@navy, 8%), 5%); // desire: #669ec0 - result: #68a0c2
+@btn-navy-act: spin(desaturate(darken(@navy, 12%), 3%), -1); // desire: #5496bd - result: #5799be
+
+
 
 
 /*=======================================================
@@ -74,6 +81,8 @@
 
 @screen-xs-max:         (@screen-sm-min - 1);
 @screen-sm-max:         (@screen-lg-min - 1);
+
+@feature-img-size:       512px;
 
 /*=======================================================
     Container sizes

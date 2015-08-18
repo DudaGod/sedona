@@ -1,0 +1,41 @@
+<section class="search-hotel">
+  <header class="search-hotel__header">
+    <h2 class="search-hotel__heading">Заинтересовались?</h2>
+    <h3 class="search-hotel__descr">Укажите предполагаемые даты поездки и мы покажем вам лучшие предложения гостиниц в Седоне</h3>
+  </header>
+
+  <form action="#echo" method="post" class="search-form">
+    <h2 class="search-form__heading">Поиск гостиницы в Седоне</h2>
+    <div class="search-form__row">
+      <input type="date" name="date-in" id="date-in" class="search-form__date" placeholder="29 июля 2015">
+      <label for="date-in" class="search-form__label">Дата заезда:</label>
+    </div>
+    <div class="search-form__row">
+      <input type="date" name="date-out" id="date-out" class="search-form__date" placeholder="24 августа 2015">
+      <label for="date-out" class="search-form__label">Дата выезда:</label>
+    </div>
+    <div class="search-form__row search-form__row--oneline">
+      <div class="search-form__half-row to-left">
+        <div class="search-form__btns to-right">
+          <input type="button" value="-" class="search-form__btn-minus" id="btn-minus-adults">
+          <input type="text" name="count-adults" id="count-adults" class="search-form__count" placeholder="2">
+          <input type="button" value="+" class="search-form__btn-plus" id="btn-plus-adults">
+        </div>
+        <label for="count-adults" class="search-form__label to-left">Взрослые:</label>
+      </div>
+      <div class="search-form__half-row to-right">
+        <div class="search-form__btns to-right">
+          <input type="button" value="-" class="search-form__btn-minus" id="btn-minus-children">
+          <input type="text" name="count-children" id="count-children" class="search-form__count" placeholder="0">
+          <input type="button" value="+" class="search-form__btn-plus" id="btn-plus-children">
+        </div>
+        <label for="count-children" class="search-form__label to-left">Дети:</label>
+      </div>
+    </div>
+    <div class="search-form__submit-wrapper">
+      <input type="submit" class="search-form__submit" value="Найти">
+    </div>
+  </form>
+
+  <div class="search-hotel__map" id="map-canvas"></div>
+</section>
