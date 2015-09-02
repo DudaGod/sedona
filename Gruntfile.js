@@ -23,6 +23,18 @@ module.exports = function(grunt) {
     },
 
 
+    less_colors: {
+      start: {
+        options: {
+          funcName: 'cless'
+        },
+        files: {
+          'src/less/variables.less': ['src/less/variables.less']
+        }
+      }
+    },
+
+
     autoprefixer: {
       options: {
         browsers: ['last 2 versions', 'ie 9'],
@@ -96,30 +108,6 @@ module.exports = function(grunt) {
     },
 
 
-    imagemin: {
-      build: {
-        options: {
-          optimizationLevel: 3
-        },
-        files: [{
-          expand: true,
-          src: ['build/img/*.{png,jpg,gif,svg}']
-        }]
-      }
-    },
-
-    less_colors: {
-      start: {
-        options: {
-          funcName: 'cless'
-        },
-        files: {
-          'src/less/variables.less': ['src/less/variables.less']
-        }
-      }
-    },
-
-
     // потребует в package.json:  "grunt-replace": "^0.8.0",
     // replace: {
     //   dist: {
@@ -155,6 +143,16 @@ module.exports = function(grunt) {
     },
 
 
+    includereplace: {
+      html: {
+        src: '*.html',
+        dest: 'build/',
+        expand: true,
+        cwd: 'src/'
+      }
+    },
+
+
     copy: {
       js_vendors: {
         expand: true,
@@ -177,24 +175,64 @@ module.exports = function(grunt) {
         cwd: 'src/less/css/',
         src: ['*.css'],
         dest: 'build/css/',
-      }
-      // fonts: {
-      //   expand: true,
-      //   cwd: 'src/font/',
-      //   src: ['*.{eot,svg,woff,ttf}'],
-      //   dest: 'build/font/',
-      // },
-    },
-
-
-    includereplace: {
-      html: {
-        src: '*.html',
-        dest: 'build/',
+      },
+      fonts: {
         expand: true,
-        cwd: 'src/'
+        cwd: 'src/font/',
+        src: ['*.{eot,svg,woff,ttf}'],
+        dest: 'build/font/',
       }
     },
+
+
+    imagemin: {
+      build: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{ removeViewBox: false }, { removeUselessStrokeAndFill: false }]
+        },
+        files: [{
+          expand: true,
+          src: ['build/img/*.{png,jpg,gif,svg}']
+        }]
+      }
+    },
+
+
+    tinypng: {
+        options: {
+            apiKey: "3mWBACd9Uejfr87O2WCwHv11aI55ugoP",
+            checkSigs: true,
+            sigFile: 'file_sigs.json',
+            summarize: true,
+            showProgress: true,
+            stopOnImageError: true
+        },
+        compress_selected: {
+              expand: true,
+              cwd: 'build/img/',
+              dest: 'build/img/',
+              src: ['{foo,bar,baz,test}.{jpg,png}']
+        },
+        compress_all: {
+          expand: true,
+          src: ['build/img/*.{png,jpg}']
+        }
+    },
+
+
+/*    svgmin: {
+      options: {
+        plugins: [
+            { removeViewBox: false },
+            { removeUselessStrokeAndFill: false }
+        ]
+      },
+      dist: {
+        expand: true,
+        src: ['build/img/*.svg']
+      }
+    },*/
 
 
     watch: {
@@ -274,7 +312,7 @@ module.exports = function(grunt) {
     'uglify',                 // минифицируем                        build/js/script.min.js
     'copy:js_vendors',        // копируем всё из src/js/vendors/ в build/js/
     'copy:img',               // копируем всё из src/img/ в build/img/
-    // 'copy:fonts',             // копируем всё из src/font/ в build/font/
+    'copy:fonts',             // копируем всё из src/font/ в build/font/
     'imagemin',               // минифицируем картинки в build/img/
     'includereplace:html',    // собираем HTML-файлы в build/
     'browserSync',            // запускаем плюшки автообновления
@@ -296,7 +334,7 @@ module.exports = function(grunt) {
     'uglify',                 // минифицируем                        build/js/script.min.js
     'copy:js_vendors',        // копируем всё из src/js/vendors/ в build/js/
     'copy:img',               // копируем всё из src/img/ в build/img/
-    // 'copy:fonts',             // копируем всё из src/font/ в build/font/
+    'copy:fonts',             // копируем всё из src/font/ в build/font/
     'imagemin',               // минифицируем картинки в build/img/
     'includereplace:html',    // собираем HTML-файлы в build/
   ]);
@@ -327,5 +365,22 @@ module.exports = function(grunt) {
     'cmq',
     'cssmin'
   ]);
+
+  grunt.registerTask('img-tinypng-selected', [
+    'tinypng:compress_selected'
+  ]);
+
+  grunt.registerTask('img-tinypng-all', [
+    'tinypng:compress_all'
+  ]);
+
+  grunt.registerTask('test', [
+    // 'sprite',
+    'less',
+  ]);
+
+/*  grunt.registerTask('img-svgmin', [
+    'svgmin:dist'
+  ]);*/
 
 };
