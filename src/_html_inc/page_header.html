@@ -1,32 +1,56 @@
 <header class="page-header" role="banner">
-  <div class="page-header__inner">
-    <div class="page-header__wrapper">
-      <nav class="page-nav" role="navigation">
-        <ul class="page-nav__list">
-          <li class="page-nav__item"><a href="#">Карта штата</a></li>
-          <li class="page-nav__item"><a href="#">Информация</a></li>
-          <li class="page-nav__item"><a href="#">Фото и видео</a></li>
-          <li class="page-nav__item"><a href="#">Гостиницы</a></li>
-          <li class="page-nav__logo-wrap">
-            <a href="#" class="page-nav__logo-link">
-              <img src="img/logo.png" alt="Sedona" width="138" height="70" >
-            </a>
-          </li>
-        </ul>
-        <a href="##" class="page-nav__toggle-close"></a>
-        <a href="###" class="page-nav__toggle"><span></span></a>
-      </nav>
-      <div class="intro">
-        <div class="intro__welcome">
-          <img href="#" src="img/intro-welcome.png" height="66" width="196" alt="Welcome">
-        </div>
-        <div class="intro__title">
-          <img href="#" src="img/intro-title.png" height="48" width="280" alt="Title">
-        </div>
-        <!-- <div class="intro__slogan"> -->
-          <img href="#" src="img/intro-slogan.png" height="54" width="197" alt="Slogan">
-        <!-- </div> -->
-      </div>
+  <nav class="page-nav" role="navigation">
+    <ul class="page-nav__list">
+      <li class="page-nav__item"><a href="#">Карта штата</a></li>
+      <li class="page-nav__item page-nav__item--active"><a href="#">Информация</a></li>
+      <li class="page-nav__item"><a href="#">Фото и видео</a></li>
+      <li class="page-nav__item"><a href="#">Гостиницы</a></li>
+      <li class="page-nav__logo-wrap">
+        <a href="##" class="page-nav__logo-link">
+          <picture>
+            <source type="image/svg+xml" srcset="img/logo--triangle.svg">
+            <source type="image/webp" srcset="img/logo--triangle.webp">
+            <img class="page-nav__logo-triangle" src="img/logo--triangle.png" alt="Logo">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="img/logo@1x.webp 1x, img/logo@2x.webp 2x, img/logo@3x.webp 3x">
+            <img class="page-nav__logo-img" src="img/logo@1x.png" srcset="img/logo@2x.png 2x, img/logo@3x.png 3x" alt="Sedona">
+          </picture>
+        </a>
+      </li>
+    </ul>
+    <a href="##" class="page-nav__toggle-close"></a>
+    <a href="###" class="page-nav__toggle"><span></span></a>
+  </nav>
+
+  <div class="intro">
+    <div class="intro__welcome">
+      <picture>
+        <source srcset="img/text-welcome.svg" type="image/svg+xml">
+        <source media="(min-width: 768px)" srcset="img/text-welcome--big@1x.png 1x, img/text-welcome--big@2x.png 2x">
+        <img class="intro__welcome-img" src="img/text-welcome@1x.png" srcset="img/text-welcome@2x.png 2x" alt="Welcome">
+      </picture>
+    </div>
+    <div class="intro__gorgeous">
+      <picture>
+        <source srcset="img/text-tothegorgeous.svg" type="image/svg+xml">
+        <source media="(min-width: 768px)" srcset="img/text-tothegorgeous--big@1x.png 1x, img/text-tothegorgeous--big@2x.png 2x">
+        <img class="intro__gorgeous-img" src="img/text-tothegorgeous@1x.png" srcset="img/text-tothegorgeous@2x.png 2x" alt="to the gorgeous">
+      </picture>
+    </div>
+    <div class="intro__title">
+      <picture>
+        <source srcset="img/text-sedona.svg" type="image/svg+xml">
+        <source media="(min-width: 768px)" srcset="img/text-sedona--big@1x.png 1x, img/text-sedona--big@2x.png 2x">
+        <img class="intro__title-img" src="img/text-sedona@1x.png" srcset="img/text-sedona@2x.png 2x" alt="Sedona">
+      </picture>
+    </div>
+    <div class="intro__slogan">
+      <picture>
+        <source srcset="img/text-becausecanyon.svg" type="image/svg+xml">
+        <source media="(min-width: 768px)" srcset="img/text-becausecanyon--big@1x.png 1x, img/text-becausecanyon--big@2x.png 2x">
+        <img class="intro__slogan-img" src="img/text-becausecanyon@1x.png" srcset="img/text-becausecanyon@2x.png 2x" alt="Because the Grand Canyon sucks">
+      </picture>
     </div>
   </div>
 </header>

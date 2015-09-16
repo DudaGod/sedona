@@ -21,10 +21,9 @@ body {
   line-height: @line-height;
   color: @text-color--gray;
   background-color: @body-bg;
-  min-width: @screen-xs-min;
-  max-width: @screen-xs-max;
+  // min-width: @screen-xs-min;
+  // max-width: @screen-xs-max;
   text-transform: uppercase;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -53,8 +52,16 @@ textarea {
 }
  */
 
+
 img {
   vertical-align: middle;
   max-width: 100%;
 }
 
+.page-wrapper {
+  min-width: @screen-xs-min;
+  max-width: @screen-lg-inner;
+  background-color: @white;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+  margin: 0 auto;
+}

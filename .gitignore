@@ -1,4 +1,5 @@
 node_modules
+src/_html_inc/img
 npm-debug.log
 file_sigs.json
 *.sublime*
