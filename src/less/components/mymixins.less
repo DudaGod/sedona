@@ -8,6 +8,10 @@
   transform+_: @value;
 }
 
+.box-shadow(@value) {
+  box-shadow+: @value;
+}
+
 .placeholder(@rules) {
   &::-webkit-input-placeholder {
     @rules();
@@ -19,6 +23,24 @@
     @rules();
   }
   &:-ms-input-placeholder {
+    @rules();
+  }
+}
+
+.tablet(@rules) {
+  @media screen and (min-width: @screen-sm-min) {
+    @rules();
+  }
+}
+
+.desktop(@rules) {
+  @media screen and (min-width: @screen-lg-max) {
+    @rules();
+  }
+}
+
+.feature-img(@rules) {
+  @media screen and (min-width: @feature-img-size) {
     @rules();
   }
 }

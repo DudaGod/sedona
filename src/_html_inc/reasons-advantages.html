@@ -5,63 +5,73 @@
   </header>
 
   <div class="reason">
-    <div class="reason__info reason__info--full reason__info--mask to-left">
+    <div class="reason__full reason__full--mask">
       <h2 class="reason__heading">Настоящий городок</h2>
       <p class="reason__number">— №1 —</p>
       <p class="reason__descr">Седона не атракцион для туристов, там течет своя жизнь</p>
     </div>
-    <div class="reason__img reason__img--city to-right">
-      <img src="img/feature-1.jpg" alt="Седона - настоящий городок" >
+    <div class="reason__img reason__img--city">
+      <picture>
+        <source media="(min-width: 768px)" sizes="67vw" srcset="img/photo-feature-city--full@1x.webp 1x, img/photo-feature-city--full@2x.webp 2x" type="image/webp">
+        <source media="(min-width: 768px)" sizes="67vw" srcset="img/photo-feature-city--full@1x.jpg 1x, img/photo-feature-city--full@2x.jpg 2x">
+        <source sizes="(min-width: 768px) 67vw, 100vw" srcset="img/photo-feature-city@1x.webp 512w, img/photo-feature-city@2x.webp 1024w" type="image/webp">
+        <img src="img/photo-feature-city@1x.jpg" sizes="(min-width: 768px) 67vw, 100vw" srcset="img/photo-feature-city@1x.jpg 512w, img/photo-feature-city@2x.jpg 1024w" alt="Седона - настоящий городок">
+      </picture>
     </div>
   </div>
 
   <div class="advantages">
-    <div class="advantages__item">
-      <div class="advantages__img advantages__img--home"></div>
+    <div class="advantages__item advantages">
+      <svg class="advantages__img-home" role="img" title="Жилье"><use xlink:href="#icon-house" data-img="img/icon-house.png"></use></svg>
       <div class="advantages__header">
         <h3 class="advantages__heading">Жилье</h3>
         <p class="advantages__info">Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
       </div>
     </div>
-    <div class="advantages__item">
-      <div class="advantages__img advantages__img--souvenir"></div>
+    <div class="advantages__item advantages">
+      <svg class="advantages__img-souvenir" role="img" title="Сувенир"><use xlink:href="#icon-gift" data-img="img/icon-gift.png"></use></svg>
       <div class="advantages__header">
         <h3 class="advantages__heading">Сувениры</h3>
         <p class="advantages__info">Не только китайского, но и местного производства!</p>
       </div>
     </div>
-    <div class="advantages__item">
-      <div class="advantages__img advantages__img--food"></div>
+    <div class="advantages__item advantages">
+      <svg class="advantages__img-food" role="img" title="Сувенир"><use xlink:href="#icon-burger" data-img="img/icon-burger.png"></use></svg>
       <div class="advantages__header">
         <h3 class="advantages__heading">Еда</h3>
-        <p class="advantages__info">Всегда заказывайте фирменный бургер, вы не разочаруетесь!</p>
+        <p class="advantages__info">Всегда заказывай фирменный бургер, вы не разочаруетесь!</p>
       </div>
     </div>
   </div>
 
   <div class="reason">
-    <div class="reason__info reason__info--full to-right">
+    <div class="reason__full">
       <h2 class="reason__heading">Tам есть мост дьявола</h2>
       <p class="reason__nubmer">— №2 —</p>
       <p class="reason__descr">Да, по нему можно пройти! Если конечно вы осмелитесь</p>
     </div>
-    <div class="reason__img reason__img--bridge to-left">
-      <img src="img/feature-2.jpg" alt="Мост дьявола">
+    <div class="reason__img reason__img--bridge">
+      <picture>
+        <source media="(min-width: 768px)" sizes="67vw" srcset="img/photo-feature-bridge--full@1x.webp 1x, img/photo-feature-bridge--full@2x.webp 2x" type="image/webp">
+        <source sizes="(min-width: 768px) 67vw, 100vw" srcset="img/photo-feature-bridge@1x.webp 512w, img/photo-feature-bridge@2x.webp 1024w" type="image/webp">
+        <source media="(min-width: 768px)" sizes="67vw" srcset="img/photo-feature-bridge--full@1x.jpg 1x, img/photo-feature-bridge--full@2x.jpg 2x">
+        <img src="img/photo-feature-bridge@1x.jpg" sizes="(min-width: 768px) 67vw, 100vw" srcset="img/photo-feature-bridge@1x.jpg 512w, img/photo-feature-bridge@2x.jpg 1024w" alt="Мост дьявола">
+      </picture>
     </div>
   </div>
 
-  <div class="reasons reasons--short">
-    <div class="reason__info reason__info--short">
+  <div class="reason reason--short">
+    <div class="reason__short">
       <h3 class="reason__heading reason__heading--short">Небольшая площадь</h3>
       <p class="reason__number">— №3 —</p>
       <p class="reason__descr reason__descr--short">Все достопримечательности находятся очень близко</p>
     </div>
-    <div class="reason__info reason__info--short">
+    <div class="reason__short">
       <h3 class="reason__heading reason__heading--short">Красивая дорога</h3>
       <p class="reason__number">— №4 —</p>
       <p class="reason__descr reason__descr--short">Ехать в седону из лас-вегаса совсем не скучно!</p>
     </div>
-    <div class="reason__info reason__info--short">
+    <div class="reason__short">
       <h3 class="reason__heading reason__heading--short">Мало туристов</h3>
       <p class="reason__number">— №5 —</p>
       <p class="reason__descr reason__descr--short">Большинство едет в гранд каньон и толпится там</p>

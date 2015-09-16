@@ -1,13 +1,13 @@
+@import "../variables.less";
 .page-header {
-  // width: 100%;
-
-  &__inner {
-    // margin: 0 auto;
-  }
-
-  &__wrapper {
-    // background-color: @navy;
-  }
+  background: @white;
+  margin-bottom: 4rem;
+  .tablet({
+    margin-bottom: 5.8rem;
+  });
+  .desktop({
+    margin-bottom: 6.2rem;
+  });
 }
 
 .page-nav {
@@ -19,57 +19,97 @@
     .ul-list();
     background-color: @navy;
     text-align: center;
+    .tablet({
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      background-color: @white;
+    });
   }
 
   &__item {
     display: none;
+    .tablet({
+      display: block;
+      flex-grow: 1;
+      flex-basis: 20%;
+    });
 
     &:first-child {
-      box-shadow: inset 0 -1px 0 0 rgba(0,0,0,.2);
-    }
-
-    &:nth-last-child(2){
-      box-shadow: inset 0 1px 0 0 rgba(255,255,255,.2);
+      box-shadow: inset 0 -.1rem 0 0 rgba(0,0,0,.2);
+      .tablet({
+        box-shadow: none;
+        order: 4;
+      });
     }
 
     &:not(:first-child):not(:nth-last-child(2)):not(:last-child) {
-      box-shadow: inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.2);
+      box-shadow: inset 0 .1rem 0 0 rgba(255,255,255,.2), inset 0 -.1rem 0 0 rgba(0,0,0,.2);
+      .tablet({
+        box-shadow: none;
+      });
     }
 
     &:nth-last-child(2) {
-      position: relative;
-
-      &::after {
-        position: absolute;
-        content: '';
-        bottom: 0;
-        left: 0;
-        height: 7px;
-        width: 100%;
-        background: url(../img/bg-mob-nav-shadow.png) repeat-x 0 0;
-        z-index: 10;
-      }
+      box-shadow: inset 0 .1rem 0 0 rgba(255,255,255,.2);
+      background-image: linear-gradient(0deg, rgba(52,52,52,.2) .1rem, rgba(99,99,99,.2) .3rem, rgba(150,150,150,.2) .4rem, transparent .6rem);
+      .tablet({
+        box-shadow: none;
+        background-image: none;
+        order: 5;
+      });
     }
-
 
     a {
       display: block;
-      min-height: 56px;
+      min-height: 5.6rem;
       color: @text-color--white;
       font-family: @font-family--bold;
       font-size: @font-size--h3;
       line-height: @line-height--40;
-      padding: 8px 0;
+      padding: .8rem 0;
       text-decoration: none;
+      .tablet({
+        color: #000;
+        font-size: @font-size;
+        line-height: @line-height--26;
+        padding: 1.5rem 0;
+      });
 
       &:hover {
         background-color: @btn-navy-hvr;
+        .tablet({
+          color: @navy;
+          background-color: transparent;
+        });
       }
 
       &:active {
-        // background-color: @btn-nav-act;
         background-color: @btn-navy-act;
         color: rgba(255,255,255,.3);
+        .tablet({
+          color: rgba(0,0,0,.3);
+          background-color: transparent;
+        });
+      }
+    }
+
+    &--active {
+      a {
+        .tablet({
+          color: @link-act;
+        });
+
+        &:hover {
+          .tablet({
+            color: @link-act--hover;
+          });
+        }
+
+        &:active {
+          .tablet({
+            color: rgba(118,99,87,.3);
+          });
+        }
       }
     }
 
@@ -80,37 +120,58 @@
 
   &__logo-wrap {
     background-color: @white;
-    min-height: 56px;
+    // min-width: 138px;
+    min-height: 5.6rem;
     position: relative;
-
+    .tablet({
+      display: block;
+      flex-basis: 20%;
+      flex-grow: 1;
+      order: 3;
+    });
   }
 
   &__logo-link {
     position: absolute;
-    z-index: 5;
+    z-index: @zi-lowest;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    .tablet({
+      width: 100%;
+    });
 
     &:active {
       opacity: .3;
     }
+  }
 
-    img {
-      width: 138px;
-      height: 70px;
-    }
+  &__logo-triangle {
+    width: 13.8rem;
+    height: 7rem;
+  }
+
+  &__logo-img {
+    width: 6.7rem;
+    height: 5.6rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__toggle-close {
     display: none;
     position: absolute;
-    top: 17px;
-    right: 20px;
-    width: 22px;
-    height: 22px;
+    top: 1.7rem;
+    right: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     z-index: 10;
     transition: transform .3s ease-in-out;
+    .tablet({
+      display: none;
+    });
 
     &:hover {
       transform: scale(1.3);
@@ -122,8 +183,8 @@
       content: '';
       top: 50%;
       left: 50%;
-      height: 4px;
-      width: 29px;
+      height: .4rem;
+      width: 2.9rem;
       background-color: @white;
       transition: background .3s ease-in-out;
     }
@@ -140,7 +201,7 @@
 
     &:hover::after,
     &:hover::before {
-      background-color: #afd6ed;
+      background-color: @btn-closemob-hvr;
     }
 
     &--open {
@@ -150,37 +211,39 @@
 
   &__toggle {
     position: absolute;
-    width: 23px;
-    height: 22px;
-    right: 20px;
-    bottom: 17px;
+    width: 2.3rem;
+    height: 2.2rem;
+    right: 2rem;
+    bottom: 1.7rem;
+    .tablet({
+      display: none;
+    });
 
     &>span {
       position: absolute;
-      width: 23px;
-      height: 4px;
+      width: 2.3rem;
+      height: .4rem;
       background-color: @navy;
       top: 50%;
       transform: translateY(-50%) rotate(0deg);
-      transition: transform .7s ease-in-out;
 
       &::after,
       &::before {
         position: absolute;
         content: '';
         right: 0;
-        width: 23px;
-        height: 4px;
+        width: 2.3rem;
+        height: .4rem;
         background-color: @navy;
-        transition: width .7s ease-in-out, transform .7s ease-in-out;
+        transition: transform .2s ease-in-out;
       }
 
       &::before {
-        bottom: 9px;
+        bottom: .9rem;
       }
 
       &::after {
-        top: 9px;
+        top: .9rem;
       }
     }
 
@@ -188,10 +251,14 @@
       &>span {
         background-color: @btn-navy-hvr;
 
+        &::before {
+          background-color: @btn-navy-hvr;
+          transform: translateY(-.2rem);
+        }
 
-        &::before,
         &::after {
           background-color: @btn-navy-hvr;
+          transform: translateY(.2rem);
         }
       }
     }
@@ -210,30 +277,100 @@
 }
 
 .intro {
-  min-height: 390px;
+  // strange bug with mh 390 on mobile device (chrome) - appear photo-line 1px under mask
+  min-height: 38.9rem;
   width: 100%;
-  background: @white url(../img/bg-intro.jpg) no-repeat 50% 0%;
+  background: @white url("../img/photo-bg-intro@1x.jpg") no-repeat;
+  background-position: 50% 0;
   position: relative;
   text-align: center;
-  padding-top: 48px;
+  padding-top: 4.7rem;
+  .tablet({
+    padding-top: 7.6rem;
+    // again strange bug with mh 508 on mobile device (chrome) - appear photo-line 1px under mask
+    min-height: 50.9rem;
+    background-size: cover;
+  });
+  .desktop({
+    background-image: url("../img/photo-bg-intro--full@1x.jpg");
+    background-position: 50% -8.5rem;
+  });
 
   &::after {
     position: absolute;
     content: '';
     bottom: -1px;
     display: block;
-    // left: 50%;
-    // transform: translateX(-50%);
-    min-height: 37px;
+    height: 3.7rem;
     width: 100%;
-    background: transparent url(../img/intro-mask.png) no-repeat 50% 0;
+    background: url("../img/mask-intro.png") no-repeat 50% 0;
+    background: url("../img/mask-intro.svg") no-repeat 50% 0, linear-gradient(transparent, transparent);
+    background-size: 76.8rem 3.7rem;
+    .tablet({
+      background-size: 100% 100%;
+    });
+    .desktop({
+      height: 5.7rem;
+    });
   }
 
   &__welcome {
-    margin-bottom: 60px;
+    margin-bottom: .8rem;
+    .tablet({
+      margin-bottom: 1.1rem;
+    });
+
+    &-img {
+      width: 14.5rem;
+      height: 3.5rem;
+      .tablet({
+        width: 18.9rem;
+        height: 4.5rem;
+      });
+    }
+  }
+
+  &__gorgeous {
+    margin-bottom: 6rem;
+    .tablet({
+      margin-bottom: 5.2rem;
+    });
+
+    &-img {
+      width: 19.6rem;
+      height: 2.4rem;
+      .tablet({
+        width: 25.6rem;
+        height: 3rem;
+      });
+    }
   }
 
   &__title {
-    margin-bottom: 67px;
+    margin-bottom: 6.7rem;
+    .tablet({
+      margin-bottom: 5.6rem;
+    });
+
+    &-img {
+      width: 28rem;
+      height: 4.8rem;
+      .tablet({
+        width: 45.8rem;
+        height: 7.8rem;
+      });
+    }
+  }
+
+  &__slogan {
+
+    &-img {
+      width: 19.7rem;
+      height: 5.4rem;
+      .tablet({
+        width: 29.5rem;
+        height: 8rem;
+      });
+    }
   }
 }

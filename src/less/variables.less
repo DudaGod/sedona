@@ -1,9 +1,7 @@
-/*=======================================================
-    Colors
-========================================================*/
+//    Colors
 
 @gray:                  #000000;
-@gray--20:              lighten(@gray, 20%); // text
+@gray--20:              lighten(@gray, 20%); // #333333 (text)
 @gray--84:              lighten(@gray, 84%); // #d6d6d6 (border-btm, feature-short)
 @gray--93:              lighten(@gray, 93%); // #eeeeee (background)
 
@@ -15,12 +13,9 @@
 @brown:                 #766357;
 
 
+//    Scaffolding
 
-/*=======================================================
-    Scaffolding
-========================================================*/
-
-@body-bg:               #fff;
+@body-bg:               #f2f2f2;
 @text-color:            @gray;
 @text-color--gray:      @gray--20;
 @text-color--white:     @white;
@@ -29,11 +24,14 @@
 @link-color--hover:     @navy;
 @link-color--active:    fade(@gray, 30%);
 
-@html-size-base:        10px;
+@link-act: @brown;
+@link-act--hover: spin(saturate(darken(@brown, 8%), 3%), -1); // desire: #604e43 - result: #614e43
 
-/*=======================================================
-    Typography
-========================================================*/
+
+@html-size-base:        62.5%;
+
+
+//    Typography
 
 @font-family:           "PTSans-Regular", Arial, sans-serif;
 @font-family--bold:     "PTSans-Bold", Arial, sans-serif;
@@ -55,38 +53,42 @@
 @font-weight:        400;
 @font-weight--bold:  700;
 
-/*=======================================================
-    Buttons
-========================================================*/
+
+//    Buttons
 
 @btn-navy-hvr: desaturate(darken(@navy, 8%), 5%); // desire: #669ec0 - result: #68a0c2
 @btn-navy-act: spin(desaturate(darken(@navy, 12%), 3%), -1); // desire: #5496bd - result: #5799be
 
+@btn-closemob-hvr: spin(saturate(lighten(@navy, 15%), 16%), -1); // desire: #afd6ed - result: #b2d8ee
+
+//    Forms
 
 
-
-/*=======================================================
-    Forms
-========================================================*/
-
-
-
-/*=======================================================
-    Media queries breakpoints
-========================================================*/
+//    Media queries breakpoints
 
 @screen-xs-min:         320px; // mobile
+
 @screen-sm-min:         768px; // tablet
-@screen-lg-min:         1280px; // wide desktop
+
+@screen-lg-min:         (@screen-sm-min + 1);
+@screen-lg-max:         1280px; // wide desktop
 
 @screen-xs-max:         (@screen-sm-min - 1);
 @screen-sm-max:         (@screen-lg-min - 1);
 
+@screen-lg-inner:        1200px;
 @feature-img-size:       512px;
 
-/*=======================================================
-    Container sizes
-========================================================*/
+
+//    Container sizes
 
 
+// z-indexes
 
+@zi-highest: 50;
+@zi-high: 40;
+@zi-medium: 30;
+@zi-low: 20;
+@zi-lowest: 10;
+@zi-ground: 0;
+@zi-below-ground: -1;

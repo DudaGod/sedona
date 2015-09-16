@@ -1,0 +1,31 @@
+@import "variables.less";
+@import "components/mymixins.less";
+
+.advantages__img {
+  &-home {
+    background-image: url('../img/icon-house.png');
+    background-repeat: no-repeat;
+    background-size: 3.7rem 3.7rem;
+    .tablet({
+      background-size: 7.5rem 7.2rem;
+    });
+  }
+
+  &-souvenir {
+    background-image: url('../img/icon-gift.png');
+    background-repeat: no-repeat;
+    background-size: 3.2rem 3.8rem;
+    .tablet({
+      background-size: 6.4rem 7.6rem;
+    });
+  }
+
+  &-food {
+    background-image: url('../img/icon-burger.png');
+    background-repeat: no-repeat;
+    background-size: 3.7rem 3.5rem;
+    .tablet({
+      background-size: 7.4rem 7rem;
+    });
+  }
+}
